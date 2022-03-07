@@ -14,6 +14,12 @@
 
 配合 Python 命名惯例，本项目中的变量名称由原项目的 *camelCase* 改为 *snake_case*。例如，原项目中的 `getMapList(index)` 在本项目中被写作 `get_map_list(index)`。
 
+### 返回值的类型
+
+按照下列映射规则：
+- JavaScript 中的 `Array` 对应 Python 中的 `list`。
+- JavaScript 中的 `Object` 对应 Python 中的 `dict`。
+
 ### 测试
 
 直接使用 Python 运行即可（`python ballancemaps_fetch.py`）。

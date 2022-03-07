@@ -34,7 +34,7 @@ def get_group_indexes(pattern_str):
 
   matched_indexes = []
   for index in indexes:
-    if search(pattern_str, index["id"]):
+    if search(pattern_str, index["name"]):
       matched_indexes.append(index)
 
   return matched_indexes
