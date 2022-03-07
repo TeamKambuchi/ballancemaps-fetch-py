@@ -12,7 +12,7 @@ def get_group_indexes(pattern_str):
   html_string = get_ys_html(index_link)
   indexes = []
   for matches in findall(
-        r'<li[^<>]+id="ml_([0-9]+)"[^<>]*>.*?<a class="ml"[^<>]*>([^<>]+)</a><label>([^<>]+)</label>.*?</li>',
+        r'<li[^<>]+id="ml_([0-9]+)"[^<>]*>.*?<a class="ml"[^<>]*>([^<>]+)</a><label>([^<>]+)?</label>.*?</li>',
         html_string
       ):
     if search(pattern_str, matches[1]):
@@ -59,3 +59,20 @@ def get_ys_html(url):
   except Exception as e:
     print_exception(e)
   return response_string
+
+
+def main():
+  def print_lines():
+    print('-' * 24)
+
+  print_lines()
+  pattern = input("要获取的目录名称样式: ")
+  print("\n".join([str(index) for index in get_group_indexes(pattern)]))
+  print_lines()
+  selected_index = input("要获取的目录 id: ")
+  print("\n".join([str(map) for map in get_map_list(selected_index)]))
+  print_lines()
+
+
+if __name__ == '__main__':
+  main()
