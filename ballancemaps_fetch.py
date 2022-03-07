@@ -12,7 +12,7 @@ def get_group_indexes(pattern_str):
   html_string = get_ys_html(index_link)
   indexes = []
   for matches in findall(
-        r'<li[^<>]+id="ml_([0-9]+)"[^<>]*>.*?<a class="ml"[^<>]*>([^<>]+)</a><label>([^<>]+)?</label>.*?</li>',
+        r'<li[^<>]+id="ml_([0-9]+)"[^<>]*>.*?<a [^<>]*>([^<>]+)</a><label>([^<>]+)?</label>.*?</li>',
         html_string
       ):
     if search(pattern_str, matches[1]):
