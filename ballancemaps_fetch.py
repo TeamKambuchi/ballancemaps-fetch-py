@@ -32,12 +32,7 @@ def get_group_indexes(pattern_str):
       )
     ))
 
-  matched_indexes = []
-  for index in indexes:
-    if search(pattern_str, index["name"]):
-      matched_indexes.append(index)
-
-  return matched_indexes
+  return [i for i in indexes if search(pattern_str, i["name"])]
 
 
 def get_map_list(index):
@@ -86,7 +81,7 @@ def main():
   print("\n".join([str(index) for index in get_group_indexes(pattern)]))
   print_lines()
   selected_index = input("要获取的目录 id: ")
-  print("\n".join([str(map) for map in get_map_list(selected_index)]))
+  print("\n".join([str(file) for file in get_map_list(selected_index)]))
   print_lines()
 
 
